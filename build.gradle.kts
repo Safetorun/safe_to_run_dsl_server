@@ -4,6 +4,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 val kotlinVersion: String by System.getProperties()
+val safeToRunVersion : String by System.getProperties()
 val kotlinIdeVersion: String by System.getProperties()
 val policy: String by System.getProperties()
 val indexes: String by System.getProperties()
@@ -78,6 +79,7 @@ dependencies {
     kotlinDependency("com.fasterxml.jackson.core:jackson-core:2.13.0")
     kotlinDependency("com.fasterxml.jackson.core:jackson-annotations:2.13.0")
     // Kotlin libraries
+    kotlinDependency("com.safetorun:safeToRunConfiguration:$safeToRunVersion")
     kotlinDependency("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
     kotlinDependency("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion")
     kotlinDependency("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")

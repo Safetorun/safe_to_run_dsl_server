@@ -5,6 +5,7 @@ import com.compiler.server.model.Project
 import com.compiler.server.model.TranslationJSResult
 import com.compiler.server.model.bean.VersionInfo
 import com.compiler.server.service.KotlinProjectExecutor
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -40,5 +41,6 @@ class CompilerRestController(private val kotlinProjectExecutor: KotlinProjectExe
 @RestController
 class VersionRestController(private val kotlinProjectExecutor: KotlinProjectExecutor) {
   @GetMapping("/versions")
-  fun getKotlinVersionEndpoint(): List<VersionInfo> = listOf(kotlinProjectExecutor.getVersion())
+  fun getKotlinVersionEndpoint(): ResponseEntity<List<VersionInfo>> =
+    ResponseEntity.ok(listOf(kotlinProjectExecutor.getVersion()))
 }
