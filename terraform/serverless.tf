@@ -13,7 +13,7 @@ resource "aws_lambda_function" "kotlin_compiler_func" {
   function_name    = "kotlin_compiler_func"
   role             = aws_iam_role.kotlin_compiler_iam_role.arn
   handler          = "com.compiler.server.lambdas.StreamLambdaHandler::handleRequest"
-  source_code_hash = filebase64sha256(data.aws_s3_bucket_object.aws_lambda_obj.body)
+#  source_code_hash = filebase64sha256(data.aws_s3_bucket_object.aws_lambda_obj.body)
   runtime          = "java11"
   s3_bucket = data.aws_s3_bucket_object.aws_lambda_obj.bucket
   s3_key = data.aws_s3_bucket_object.aws_lambda_obj.key
