@@ -4,23 +4,19 @@ locals {
 resource "aws_s3_bucket" "kotlin_compiler_func_code" {
   bucket = "kotlin-compiler-func-code"
 }
-
-resource "aws_s3_object" "object" {
-  bucket = aws_s3_bucket.kotlin_compiler_func_code.bucket
+data "aws_s3_bucket_object" "aws_lambda_obj" {
+  bucket = aws_s3_bucket.kotlin_compiler_func_code.id
   key    = "lambda.zip"
-  source = local.filename
-  etag = filemd5(local.filename)
 }
 
 resource "aws_lambda_function" "kotlin_compiler_func" {
   function_name    = "kotlin_compiler_func"
   role             = aws_iam_role.kotlin_compiler_iam_role.arn
   handler          = "com.compiler.server.lambdas.StreamLambdaHandler::handleRequest"
-  source_code_hash = filebase64sha256(local.filename)
+  source_code_hash = filebase64sha256(data.aws_s3_bucket_object.aws_lambda_obj.body)
   runtime          = "java11"
-  s3_bucket = aws_s3_object.object.bucket
-  s3_key = aws_s3_object.object.key
-  s3_object_version = aws_s3_object.object.version_id
+  s3_bucket = aws_s3_bucket.kotlin_compiler_func_code.id
+  s3_key = "lambda.zip"
   timeout = 360
   memory_size = 2048
 }
