@@ -78,6 +78,8 @@ dependencies {
     kotlinDependency("com.fasterxml.jackson.core:jackson-databind:2.13.0")
     kotlinDependency("com.fasterxml.jackson.core:jackson-core:2.13.0")
     kotlinDependency("com.fasterxml.jackson.core:jackson-annotations:2.13.0")
+    kotlinDependency("com.google.code.gson:gson:2.9.0")
+
     // Kotlin libraries
     kotlinDependency("com.safetorun:safeToRunConfiguration:$safeToRunVersion")
     kotlinDependency("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
@@ -86,8 +88,8 @@ dependencies {
     kotlinDependency("org.jetbrains.kotlin:kotlin-test:$kotlinVersion")
     kotlinDependency("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.1")
     kotlinJsDependency("org.jetbrains.kotlin:kotlin-stdlib-js:$kotlinVersion")
-
     annotationProcessor("org.springframework:spring-context-indexer")
+    implementation("com.google.code.gson:gson:2.9.0")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.amazonaws.serverless:aws-serverless-java-container-springboot2:1.8")
     implementation("junit:junit:4.12")
