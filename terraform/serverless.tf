@@ -2,8 +2,9 @@ locals {
   filename = "../build/distributions/kotlin-compiler-server-1.6.21-SNAPSHOT.zip"
 }
 resource "aws_s3_bucket" "kotlin_compiler_func_code" {
-  bucket = "kotlin-compiler-func-code"
+  bucket = "kotlincompiler"
 }
+
 data "aws_s3_bucket_object" "aws_lambda_obj" {
   bucket = aws_s3_bucket.kotlin_compiler_func_code.id
   key    = "lambda.zip"
