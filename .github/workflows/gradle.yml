@@ -27,7 +27,7 @@ jobs:
         cli_config_credentials_token: ${{ secrets.TF_TOKEN_APP_TERRAFORM_IO }}
     - name: Rename file to zip extension
       run:
-        mv build/distributions/kotlin-compiler-server-1.6.21-SNAPSHOT.jar lambda.zip
+        mv build/distributions/kotlin-compiler-server-1.6.21-SNAPSHOT.zip lambda.zip
     - name: S3 Upload Action
       uses: hkusu/s3-upload-action@v2
       with:
