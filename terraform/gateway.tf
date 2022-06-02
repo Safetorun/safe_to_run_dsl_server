@@ -21,7 +21,6 @@ resource "aws_api_gateway_method" "post_method" {
   authorization = "NONE"
 }
 
-
 resource "aws_api_gateway_method" "options_method" {
   rest_api_id   = aws_api_gateway_rest_api.gw.id
   resource_id   = aws_api_gateway_resource.gw_resource.id
@@ -110,6 +109,7 @@ resource "aws_api_gateway_stage" "gw_stage" {
   rest_api_id   = aws_api_gateway_rest_api.gw.id
   stage_name    = "Prod"
 }
+
 # Permission
 resource "aws_lambda_permission" "apigw" {
   action        = "lambda:InvokeFunction"
