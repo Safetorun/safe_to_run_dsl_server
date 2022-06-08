@@ -1,10 +1,8 @@
 terraform {
-
-  cloud {
-    organization = "safetorun"
-    workspaces {
-      name = "safe-to-run-compiler-server"
-    }
+  backend "s3" {
+    bucket = "kotlin-compiler-terraform-state"
+    key    = "tf-state-kompiler"
+    region = "eu-west-1"
   }
 
   required_providers {

@@ -25,17 +25,6 @@ jobs:
       with:
         terraform_version: 1.1.7
         cli_config_credentials_token: ${{ secrets.TF_TOKEN_APP_TERRAFORM_IO }}
-    - name: Rename file to zip extension
-      run:
-        mv build/distributions/kotlin-compiler-server-1.6.21-SNAPSHOT.zip lambda.zip
-    - id: install-aws-cli
-      uses: unfor19/install-aws-cli-action@v1.0.3
-    - name: S3 Upload
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION: ${{ secrets.AWS_REGION }}
-      run: aws s3 cp lambda.zip s3://kotlincompiler
     - name: Terraform deploy
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
