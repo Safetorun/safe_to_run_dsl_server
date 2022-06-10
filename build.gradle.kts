@@ -39,6 +39,7 @@ val copyDependencies by tasks.creating(Copy::class) {
     from(kotlinDependency)
     into(libJVMFolder)
 }
+
 val copyJSDependencies by tasks.creating(Copy::class) {
     from(files(Callable { kotlinJsDependency.map { zipTree(it) } }))
     into(libJSFolder)
@@ -87,8 +88,9 @@ dependencies {
     kotlinDependency("org.jetbrains.kotlin:kotlin-test:$kotlinVersion")
     kotlinDependency("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.1")
     kotlinJsDependency("org.jetbrains.kotlin:kotlin-stdlib-js:$kotlinVersion")
+    kotlinDependency("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
     annotationProcessor("org.springframework:spring-context-indexer")
-
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
     implementation("com.safetorun:safeToRunConfiguration:$safeToRunVersion")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.amazonaws.serverless:aws-serverless-java-container-springboot2:1.8")
