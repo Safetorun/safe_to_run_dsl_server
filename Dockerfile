@@ -1,4 +1,4 @@
-FROM openjdk:18.0.1-slim-bullseye as build
+FROM openjdk:20-oracle as build
 
 ENV KOTLIN_LIB=1.6.21
 ENV KOTLIN_LIB_JS=1.6.21-js
@@ -10,7 +10,7 @@ ADD . /kotlin-compiler-server
 RUN ./gradlew build -x test
 RUN mkdir -p /build/libs && (cd /build/libs;  jar -xf /kotlin-compiler-server/build/libs/kotlin-compiler-server-${KOTLIN_LIB}-SNAPSHOT.jar)
 
-FROM openjdk:18.0.1-slim-bullseye
+FROM openjdk:20-oracle
 
 RUN mkdir /kotlin-compiler-server
 WORKDIR /kotlin-compiler-server
