@@ -81,7 +81,7 @@ dependencies {
     kotlinDependency("com.fasterxml.jackson.core:jackson-annotations:2.13.0")
 
     // Kotlin libraries
-    kotlinDependency("com.safetorun:safeToRunConfiguration:$safeToRunVersion")
+    kotlinDependency("com.safetorun:safeToRunInternal:$safeToRunVersion")
     kotlinDependency("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
     kotlinDependency("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion")
     kotlinDependency("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
@@ -91,7 +91,7 @@ dependencies {
     kotlinDependency("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
     annotationProcessor("org.springframework:spring-context-indexer")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
-    implementation("com.safetorun:safeToRunConfiguration:$safeToRunVersion")
+    implementation("com.safetorun:safeToRunInternal:$safeToRunVersion")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.amazonaws.serverless:aws-serverless-java-container-springboot2:1.8")
     implementation("junit:junit:4.12")
